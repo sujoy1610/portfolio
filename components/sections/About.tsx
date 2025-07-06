@@ -51,7 +51,7 @@ const About = () => {
             About <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Me</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            I'm a passionate self-taught developer who believes in the power of technology to solve real problems. 
+            I&apos;m a passionate self-taught developer who believes in the power of technology to solve real problems. 
             My journey started with curiosity and has evolved into a deep love for creating meaningful applications.
           </p>
         </motion.div>
@@ -98,12 +98,12 @@ const About = () => {
               <h3 className="text-2xl font-bold text-white mb-6">What Drives Me</h3>
               <div className="space-y-4 text-gray-300">
                 <p>
-                  🚀 I'm passionate about building applications that provide real value to users. 
+                  🚀 I&apos;m passionate about building applications that provide real value to users. 
                   My focus is on creating seamless, responsive experiences that work flawlessly across all devices.
                 </p>
                 <p>
                   💡 I love solving complex problems with clean, efficient code. Every project is an opportunity 
-                  to learn something new and push the boundaries of what's possible.
+                  to learn something new and push the boundaries of what&apos;s possible.
                 </p>
                 <p>
                   🎯 Currently seeking a full-time role where I can contribute to meaningful projects 

@@ -1,60 +1,56 @@
-'use client'
+'use client';
 
-import React, { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
-import Spline from '@splinetool/react-spline'
-import { ChevronDown } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+import Spline from '@splinetool/react-spline';
+import { ChevronDown } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
-// ✅ Type definition for dots
 type Dot = {
-  left: string
-  top: string
-  delay: number
-  duration: number
-}
+  left: string;
+  top: string;
+  delay: number;
+  duration: number;
+};
 
 const Hero = () => {
-  const [displayText, setDisplayText] = useState('')
-  const roles = ['Full Stack Developer', 'React Specialist', 'Firebase Expert', 'UI/UX Enthusiast']
-  const [currentRole, setCurrentRole] = useState(0)
-  const [dots, setDots] = useState<Dot[]>([]) // ✅ Now typed correctly
-  const [mounted, setMounted] = useState(false)
+  const [displayText, setDisplayText] = useState('');
+  const roles = ['Full Stack Developer', 'React Specialist', 'Firebase Expert', 'UI/UX Enthusiast'];
+  const [currentRole, setCurrentRole] = useState(0);
+  const [dots, setDots] = useState<Dot[]>([]);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true)
-
+    setMounted(true);
     const randomDots: Dot[] = Array.from({ length: 20 }, () => ({
       left: `${Math.random() * 100}%`,
       top: `${Math.random() * 100}%`,
       delay: Math.random() * 2,
       duration: 3 + Math.random() * 2,
-    }))
-
-    setDots(randomDots)
-  }, [])
+    }));
+    setDots(randomDots);
+  }, []);
 
   useEffect(() => {
     const typeText = async () => {
-      const text = roles[currentRole]
+      const text = roles[currentRole];
       for (let i = 0; i <= text.length; i++) {
-        setDisplayText(text.slice(0, i))
-        await new Promise(resolve => setTimeout(resolve, 100))
+        setDisplayText(text.slice(0, i));
+        await new Promise(resolve => setTimeout(resolve, 100));
       }
-      await new Promise(resolve => setTimeout(resolve, 2000))
+      await new Promise(resolve => setTimeout(resolve, 2000));
       for (let i = text.length; i >= 0; i--) {
-        setDisplayText(text.slice(0, i))
-        await new Promise(resolve => setTimeout(resolve, 50))
+        setDisplayText(text.slice(0, i));
+        await new Promise(resolve => setTimeout(resolve, 50));
       }
-      setCurrentRole(prev => (prev + 1) % roles.length)
-    }
-
-    typeText()
-  }, [currentRole])
+      setCurrentRole(prev => (prev + 1) % roles.length);
+    };
+    typeText();
+  }, [currentRole]);
 
   const scrollToNext = () => {
-    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })
-  }
+    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
@@ -80,7 +76,7 @@ const Hero = () => {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Hi, I'm Sujoy Sarkar 👋
+            Hi, I&apos;m Sujoy Sarkar 👋
           </motion.h1>
 
           <motion.div
@@ -89,7 +85,7 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 1 }}
           >
-            <span className="text-gray-300">I'm a</span>
+            <span className="text-gray-300">I&apos;m a</span>
             <span className="ml-2 text-blue-400 font-semibold border-r-2 border-blue-400 animate-pulse">
               {displayText}
             </span>
@@ -151,10 +147,7 @@ const Hero = () => {
               key={i}
               className="absolute w-2 h-2 bg-blue-400/30 rounded-full"
               style={{ left: dot.left, top: dot.top }}
-              animate={{
-                y: [0, -20, 0],
-                opacity: [0.3, 1, 0.3],
-              }}
+              animate={{ y: [0, -20, 0], opacity: [0.3, 1, 0.3] }}
               transition={{
                 duration: dot.duration,
                 repeat: Infinity,
@@ -165,7 +158,7 @@ const Hero = () => {
         </div>
       )}
     </section>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

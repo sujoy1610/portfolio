@@ -10,33 +10,33 @@ const Skills = () => {
 
   const skillCategories = [
     {
-      category: "Frontend",
+      category: 'Frontend',
       skills: [
-        { name: "HTML5", level: 95, color: "from-orange-500 to-red-500" },
-        { name: "CSS3", level: 90, color: "from-blue-500 to-cyan-500" },
-        { name: "JavaScript", level: 85, color: "from-yellow-500 to-orange-500" },
-        { name: "React", level: 90, color: "from-blue-400 to-cyan-400" },
-        { name: "Tailwind CSS", level: 85, color: "from-teal-500 to-green-500" },
-        { name: "Vite", level: 80, color: "from-purple-500 to-pink-500" }
-      ]
+        { name: 'HTML5', level: 95, color: 'from-orange-500 to-red-500' },
+        { name: 'CSS3', level: 90, color: 'from-blue-500 to-cyan-500' },
+        { name: 'JavaScript', level: 85, color: 'from-yellow-500 to-orange-500' },
+        { name: 'React', level: 90, color: 'from-blue-400 to-cyan-400' },
+        { name: 'Tailwind CSS', level: 85, color: 'from-teal-500 to-green-500' },
+        { name: 'Vite', level: 80, color: 'from-purple-500 to-pink-500' },
+      ],
     },
     {
-      category: "Backend & Database",
+      category: 'Backend & Database',
       skills: [
-        { name: "Firebase", level: 85, color: "from-yellow-600 to-orange-600" },
-        { name: "Node.js", level: 70, color: "from-green-600 to-teal-600" },
-        { name: "REST APIs", level: 80, color: "from-indigo-500 to-purple-500" }
-      ]
+        { name: 'Firebase', level: 85, color: 'from-yellow-600 to-orange-600' },
+        { name: 'Node.js', level: 70, color: 'from-green-600 to-teal-600' },
+        { name: 'REST APIs', level: 80, color: 'from-indigo-500 to-purple-500' },
+      ],
     },
     {
-      category: "State Management & Tools",
+      category: 'State Management & Tools',
       skills: [
-        { name: "Redux Toolkit", level: 80, color: "from-purple-600 to-indigo-600" },
-        { name: "Git", level: 85, color: "from-gray-600 to-gray-800" },
-        { name: "VS Code", level: 90, color: "from-blue-600 to-indigo-600" },
-        { name: "Vercel", level: 85, color: "from-gray-800 to-black" }
-      ]
-    }
+        { name: 'Redux Toolkit', level: 80, color: 'from-purple-600 to-indigo-600' },
+        { name: 'Git', level: 85, color: 'from-gray-600 to-gray-800' },
+        { name: 'VS Code', level: 90, color: 'from-blue-600 to-indigo-600' },
+        { name: 'Vercel', level: 85, color: 'from-gray-800 to-black' },
+      ],
+    },
   ];
 
   const containerVariants = {
@@ -44,9 +44,9 @@ const Skills = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
-      }
-    }
+        staggerChildren: 0.1,
+      },
+    },
   };
 
   const itemVariants = {
@@ -54,13 +54,14 @@ const Skills = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5 }
-    }
+      transition: { duration: 0.5 },
+    },
   };
 
   return (
     <section className="py-20 px-4 bg-slate-800/30">
       <div className="max-w-6xl mx-auto">
+        {/* Header */}
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
@@ -69,28 +70,30 @@ const Skills = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Skills & <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Tech Stack</span>
+            Skills &{' '}
+            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              Tech Stack
+            </span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Here are the technologies I work with to bring ideas to life
           </p>
         </motion.div>
 
+        {/* Skill Categories */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
-          animate={inView ? "visible" : "hidden"}
+          animate={inView ? 'visible' : 'hidden'}
           className="grid md:grid-cols-3 gap-8"
         >
-          {skillCategories.map((category, categoryIndex) => (
+          {skillCategories.map((category, catIndex) => (
             <motion.div
-              key={categoryIndex}
+              key={catIndex}
               variants={itemVariants}
               className="bg-slate-900/50 p-8 rounded-2xl border border-slate-700/50 hover:border-blue-500/30 transition-all duration-300"
             >
-              <h3 className="text-2xl font-bold text-white mb-6 text-center">
-                {category.category}
-              </h3>
+              <h3 className="text-2xl font-bold text-white mb-6 text-center">{category.category}</h3>
               <div className="space-y-6">
                 {category.skills.map((skill, skillIndex) => (
                   <div key={skillIndex} className="space-y-2">
@@ -103,7 +106,10 @@ const Skills = () => {
                         className={`h-2 rounded-full bg-gradient-to-r ${skill.color}`}
                         initial={{ width: 0 }}
                         animate={inView ? { width: `${skill.level}%` } : { width: 0 }}
-                        transition={{ duration: 1, delay: categoryIndex * 0.2 + skillIndex * 0.1 }}
+                        transition={{
+                          duration: 1,
+                          delay: catIndex * 0.2 + skillIndex * 0.1,
+                        }}
                       />
                     </div>
                   </div>
@@ -113,7 +119,7 @@ const Skills = () => {
           ))}
         </motion.div>
 
-        {/* Additional Skills Icons */}
+        {/* Extra Tools */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}

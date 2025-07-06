@@ -33,7 +33,7 @@ const Contact = () => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     toast.success('Message sent successfully!', {
-      description: "Thanks for reaching out. I'll get back to you soon.",
+      description: 'Thanks for reaching out. I&apos;ll get back to you soon.',
     });
 
     setFormData({ name: '', email: '', message: '' });
@@ -139,10 +139,10 @@ EXPERIENCE:
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Let's <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Connect</span>
+            Let&apos;s <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Connect</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            I'm always open to discussing new opportunities, interesting projects, or just having a chat about tech!
+            I&apos;m always open to discussing new opportunities, interesting projects, or just having a chat about tech!
           </p>
         </motion.div>
 
@@ -157,8 +157,8 @@ EXPERIENCE:
             <div>
               <h3 className="text-2xl font-bold text-white mb-6">Get in Touch</h3>
               <p className="text-gray-300 leading-relaxed mb-8">
-                Whether you're looking for a developer, have a project in mind, or just want to connect,
-                I'd love to hear from you. Let's create something amazing together!
+                Whether you&apos;re looking for a developer, have a project in mind, or just want to connect,
+                I&apos;d love to hear from you. Let&apos;s create something amazing together!
               </p>
             </div>
 
